@@ -1,4 +1,5 @@
 <%@ page import="java.io.File" %>
+<%@ page import="org.apache.log4j.Logger" %>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -8,25 +9,34 @@
 <%@include file='head.jsp'%>
 
 <%
+final Logger logger = Logger.getLogger(portfolio_jsp.class);
+final String thumbnailsPath = "resources/projects/2014/hscs/flash-games/thumbnails/";
 
 String p1 = "BLANK1";
 String p2 = "BLANK2";
+File[] thumbnailList = null;
 try {
-	final String thumbnailsPath = "resources/projects/2014/hscs/flash-games/thumbnails/";
-	
+	logger.info("Part 1");
 	File thumbnailsDirectory = new File(request.getSession().getServletContext().getRealPath(thumbnailsPath));
+	logger.info("Part 2");
 	HttpSession s = request.getSession();
+	logger.info("Part 3");
 	ServletContext c = session.getServletContext();
+	logger.info("Part 4");
 	p1 = c.getRealPath("/") == null ? "NULL 1!" : c.getRealPath("/");
-	p2 = c.getRealPath("/") == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
-	File[] thumbnailList = thumbnailsDirectory.listFiles();
+	p2 = c.getRealPath(thumbnailsPath) == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
+	logger.info("Part 5");
+	thumbnailList = thumbnailsDirectory.listFiles();
+	logger.info("Part 6");
 	for (File thumbnail : thumbnailList) {
 		System.out.println(thumbnail.getName());
 	}
+	logger.info("Part 7");
 }
 catch (Exception e) {
 	System.err.println("INFO: " + p1 + "\n" + p2);
 	e.printStackTrace();
+	throw e;
 }
 
 %>
@@ -38,41 +48,42 @@ catch (Exception e) {
 <div class="container"><!-- start main -->
 	<div class="main row">
  		<h2 class="style">High School Computer Science 2014 - 2015</h2>
-	 	<div class="grids_of_4 row">
+ 		<%
+ 		int count = 0;
+ 		boolean closed = false;
+ 		for (File thumbnail : thumbnailList) {
+ 			closed = false;
+ 			if (count % 4 == 0) { // Each 4 columns, add one new row
+ 		%>
+ 		<div class="grids_of_4 row">
+ 		<%
+ 			}
+ 			count++;
+ 		%>
 			<div class="col-md-3 images_1_of_4">
 				<div class="fancyDemo">
-					<a rel="group" title="" href="resources/images/pic1.jpg"><img src="resources/images/pic1.jpg" alt=""class="img-responsive"/></a>
+					<a rel="group" title="" href="<%= thumbnailsPath + thumbnail.getName() %>"><img src="<%= thumbnailsPath + thumbnail.getName() %>" alt=""class="img-responsive"/></a>
 				</div>
-				 <h3><a href="project.html">Lorem Ipsum is simply</a></h3>
-				 <p class="para">There are many variations of passages of Lorem Ipsum available,</p>
-				 <h4><a href="project.html">ipsum dolor</a> </h4>
+				 <h3><a href="project.html"><%= thumbnail.getName().substring(0, thumbnail.getName().indexOf(".")) %></a></h3>
+				 <p class="para">Created by: <%= thumbnail.getName().substring(0, thumbnail.getName().indexOf(".")) %></p>
+				 <h4><a href="project.html">Play!</a> </h4>
 			</div>
-			<div class="col-md-3 images_1_of_4">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="resources/images/pic2.jpg"><img src="resources/images/pic2.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				 <h3><a href="project.html">long established fact</a></h3>
-				 <p class="para">Our website design and development provides quality web solutions,</p>
-				 <h4><a href="project.html">Lorem ipsum</a></h4>
-			</div>
-			<div class="col-md-3 images_1_of_4">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="resources/images/pic3.jpg"><img src="resources/images/pic3.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				 <h3><a href="project.html">Contrary to popular</a></h3>
-				 <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do EIUSMOD tempor,</p>
-				 <h4><a href="project.html">consectetur lipsum</a></h4>
-			</div>
-			<div class="col-md-3 images_1_of_4">
-				<div class="fancyDemo">
-					<a rel="group" title="" href="resources/images/pic4.jpg"><img src="resources/images/pic4.jpg" alt=""class="img-responsive"/></a>
-				</div>
-				 <h3><a href="project.html">Lorem Ipsum available</a></h3>
-				 <p class="para">There are many variations of passages of Lorem Ipsum available,</p>
-				 <h4><a href="project.html">lipsum adipisicing</a></h4>
-			</div>
+		<%
+			if (count % 4 == 0) { // Each 4 columns, close row
+				closed = true;
+		%>
 			<div class="clear"></div>
 		</div>
+		<%
+			}
+ 		}
+ 		if (!closed) {
+ 		%>
+		<div class="clear"></div>
+		</div>
+ 		<%
+ 		}
+		%>
 	</div>
 </div><!-- end main -->
 
