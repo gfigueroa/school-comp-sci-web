@@ -9,12 +9,24 @@
 
 <%
 
-final String thumbnailsPath = "resources/projects/2014/hscs/flash-games/thumbnails/";
-
-File thumbnailsDirectory = new File(request.getSession().getServletContext().getRealPath(thumbnailsPath));
-File[] thumbnailList = thumbnailsDirectory.listFiles();
-for (File thumbnail : thumbnailList) {
-	System.out.println(thumbnail.getName());
+String p1 = "BLANK1";
+String p2 = "BLANK2";
+try {
+	final String thumbnailsPath = "resources/projects/2014/hscs/flash-games/thumbnails/";
+	
+	File thumbnailsDirectory = new File(request.getSession().getServletContext().getRealPath(thumbnailsPath));
+	HttpSession s = request.getSession();
+	ServletContext c = session.getServletContext();
+	p1 = c.getRealPath("/") == null ? "NULL 1!" : c.getRealPath("/");
+	p2 = c.getRealPath("/") == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
+	File[] thumbnailList = thumbnailsDirectory.listFiles();
+	for (File thumbnail : thumbnailList) {
+		System.out.println(thumbnail.getName());
+	}
+}
+catch (Exception e) {
+	System.err.println("INFO: " + p1 + "\n" + p2);
+	e.printStackTrace();
 }
 
 %>
