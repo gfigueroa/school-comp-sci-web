@@ -16,6 +16,7 @@ File[] thumbnailList = thumbnailsDirectory.listFiles();
 for (File thumbnail : thumbnailList) {
 	System.out.println(thumbnail.getName());
 }
+
 %>
 
 <body>
