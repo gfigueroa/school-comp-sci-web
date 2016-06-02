@@ -1,37 +1,37 @@
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
 	<title>HAS Computer Science</title>
-	<!-- BOOTSTRAP CORE STYLE CSS -->
-	<link href="resources/css/bootstrap.css" rel="stylesheet" />
-	<!-- FONT AWESOME CSS -->
-	<link href="resources/css/font-awesome.min.css" rel="stylesheet" />
-	<!-- FLEXSLIDER CSS -->
-	<link href="resources/css/flexslider.css" rel="stylesheet" />
-	<!-- CUSTOM STYLE CSS -->
-	<link href="resources/css/style.css" rel="stylesheet" />
-	<!-- Google	Fonts -->
-	<link
-		href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
-		rel='stylesheet' type='text/css' />
-		
-	<!--  Jquery Core Script -->
-	<script src="resources/js/jquery-1.10.2.js"></script>
-	<!--  Core Bootstrap Script -->
-	<script src="resources/js/bootstrap.js"></script>
-	<!--  Flexslider Scripts -->
-	<script src="resources/js/jquery.flexslider.js"></script>
-	<!--  Scrolling Reveal Script -->
-	<script src="resources/js/scrollReveal.js"></script>
-	<!--  Scroll Scripts -->
-	<script src="resources/js/jquery.easing.min.js"></script>
-	<!--  Custom Scripts -->
-	<script src="resources/js/custom.js"></script>
-	
-	<link rel="icon" 
-      type="image/png" 
-      href="resources/img/favicon.png">
+	<link rel="icon" href="resources/images/favicon.png" type="image/png" />
+	<!-- Bootstrap -->
+	<link href="resources/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+	<link href="resources/css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	 <!--[if lt IE 9]>
+	     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	     <script src="https://oss.maxcdn.com/libs/respond.resources/js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Kreon:300,400,700' rel='stylesheet' type='text/css'>
+	<link href="resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- start plugins -->
+	<script type="text/javascript" src="resources/js/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="resources/fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
 </head>
