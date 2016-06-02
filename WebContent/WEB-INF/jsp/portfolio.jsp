@@ -17,14 +17,14 @@ String p2 = "BLANK2";
 File[] thumbnailList = null;
 try {
 	logger.info("Part 1");
-	File thumbnailsDirectory = new File(request.getSession().getServletContext().getRealPath(thumbnailsPath));
-	logger.info("Part 2");
 	HttpSession s = request.getSession();
-	logger.info("Part 3");
+	logger.info("Part 2");
 	ServletContext c = session.getServletContext();
-	logger.info("Part 4");
+	logger.info("Part 3");
 	p1 = c.getRealPath("/") == null ? "NULL 1!" : c.getRealPath("/");
 	p2 = c.getRealPath(thumbnailsPath) == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
+	logger.info("Part 4");
+	File thumbnailsDirectory = new File(c.getRealPath(thumbnailsPath));
 	logger.info("Part 5");
 	thumbnailList = thumbnailsDirectory.listFiles();
 	logger.info("Part 6");
