@@ -19,7 +19,15 @@ public class ProjectController {
 	 */
     @RequestMapping(value="/project", method = RequestMethod.GET)
     public String getPage(ModelMap model, HttpServletRequest request) {
-
+    	String projectName = request.getParameter("projectName");
+    	String projectPath = request.getParameter("projectPath");
+    	String fileName = request.getParameter("fileName");
+    	String author = request.getParameter("author");
+    	
+    	model.addAttribute("projectName", projectName);
+    	model.addAttribute("projectPath", projectPath);
+    	model.addAttribute("fileName", fileName);
+    	model.addAttribute("author", author);
         // Prepare the result view:
         return "project";
     }

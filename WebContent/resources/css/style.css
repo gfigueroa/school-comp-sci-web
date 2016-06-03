@@ -464,6 +464,12 @@ h2.style{
 	text-decoration: none;
 	color: #323232;
 }
+/* start project */
+.flashContent{
+	border-radius: 25px;
+    border: 2px solid #2EB398;
+    padding: 20px; 
+}
 /* start blog */
 .blog{
 	background: #ffffff;

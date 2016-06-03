@@ -9,37 +9,15 @@
 <%@include file='head.jsp'%>
 
 <%
+
 final Logger logger = Logger.getLogger(portfolio_jsp.class);
 final String thumbnailsPath = "/resources/projects/2014/hscs/flash-games/thumbnails/";
+final String projectsPath = "/resources/projects/2014/hscs/flash-games/swf/";
 
-String p1 = "BLANK1";
-String p2 = "BLANK2";
-File[] thumbnailList = null;
-try {
-	logger.info("Part 1");
-	HttpSession s = request.getSession();
-	logger.info("Part 2");
-	ServletContext c = session.getServletContext();
-	logger.info("Part 3");
-	p1 = c.getRealPath("/") == null ? "NULL 1!" : c.getRealPath("/");
-	logger.info("p1: " + p1);
-	p2 = c.getRealPath(thumbnailsPath) == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
-	logger.info("p2: " + p2);
-	logger.info("Part 4");
-	File thumbnailsDirectory = new File(c.getRealPath(thumbnailsPath));
-	logger.info("Part 5");
-	thumbnailList = thumbnailsDirectory.listFiles();
-	logger.info("Part 6");
-	for (File thumbnail : thumbnailList) {
-		System.out.println(thumbnail.getName());
-	}
-	logger.info("Part 7");
-}
-catch (Exception e) {
-	System.err.println("INFO: " + p1 + "\n" + p2);
-	e.printStackTrace();
-	throw e;
-}
+HttpSession s = request.getSession();
+ServletContext c = session.getServletContext();
+File thumbnailsDirectory = new File(c.getRealPath(thumbnailsPath));
+File[] thumbnailList = thumbnailsDirectory.listFiles();
 
 %>
 
@@ -54,6 +32,21 @@ catch (Exception e) {
  		int count = 0;
  		boolean closed = false;
  		for (File thumbnail : thumbnailList) {
+ 			
+ 			
+ 			String thumbnailPath = thumbnailsPath + thumbnail.getName();
+ 			
+ 			String projectName = thumbnail.getName().substring(0, thumbnail.getName().indexOf("."));
+ 			String projectPath = projectsPath + projectName + ".swf";
+ 			String fileName = projectName + ".swf";
+ 			String author = thumbnail.getName().substring(0, thumbnail.getName().indexOf("."));
+ 			
+ 			String projectHtmlPath = "project.html" +
+ 					"?projectName=" + projectName +
+ 					"&projectPath=" + projectPath +
+ 					"&fileName=" + fileName +
+ 					"&author=" + author;
+ 			
  			closed = false;
  			if (count % 4 == 0) { // Each 4 columns, add one new row
  		%>
@@ -64,11 +57,11 @@ catch (Exception e) {
  		%>
 			<div class="col-md-3 images_1_of_4">
 				<div class="fancyDemo">
-					<a rel="group" title="" href="<%= thumbnailsPath + thumbnail.getName() %>"><img src="<%= thumbnailsPath + thumbnail.getName() %>" alt=""class="img-responsive"/></a>
+					<a rel="group" title="" href="<%= thumbnailPath %>"><img src="<%= thumbnailPath %>" alt=""class="img-responsive"/></a>
 				</div>
-				 <h3><a href="project.html"><%= thumbnail.getName().substring(0, thumbnail.getName().indexOf(".")) %></a></h3>
-				 <p class="para">Created by: <%= thumbnail.getName().substring(0, thumbnail.getName().indexOf(".")) %></p>
-				 <h4><a href="project.html">Play!</a> </h4>
+				 <h3><a href="<%= projectHtmlPath %>"><%= projectName %></a></h3>
+				 <p class="para">Created by: <%= author %></p>
+				 <h4><a href="<%= projectHtmlPath %>">Play!</a> </h4>
 			</div>
 		<%
 			if (count % 4 == 0) { // Each 4 columns, close row
@@ -79,7 +72,7 @@ catch (Exception e) {
 		<%
 			}
  		}
- 		if (!closed) {
+ 		if (!closed) { // Close row if it hasn't been closed yet
  		%>
 		<div class="clear"></div>
 		</div>
