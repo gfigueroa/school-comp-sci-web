@@ -10,7 +10,7 @@
 
 <%
 final Logger logger = Logger.getLogger(portfolio_jsp.class);
-final String thumbnailsPath = "resources/projects/2014/hscs/flash-games/thumbnails/";
+final String thumbnailsPath = "/resources/projects/2014/hscs/flash-games/thumbnails/";
 
 String p1 = "BLANK1";
 String p2 = "BLANK2";
@@ -22,7 +22,9 @@ try {
 	ServletContext c = session.getServletContext();
 	logger.info("Part 3");
 	p1 = c.getRealPath("/") == null ? "NULL 1!" : c.getRealPath("/");
+	logger.info("p1: " + p1);
 	p2 = c.getRealPath(thumbnailsPath) == null ? "NULL 2!" : c.getRealPath(thumbnailsPath);
+	logger.info("p2: " + p2);
 	logger.info("Part 4");
 	File thumbnailsDirectory = new File(c.getRealPath(thumbnailsPath));
 	logger.info("Part 5");
