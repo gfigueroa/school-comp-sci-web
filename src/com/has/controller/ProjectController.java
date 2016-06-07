@@ -17,7 +17,7 @@ public class ProjectController {
 	 * @param request
 	 * @return the result view
 	 */
-    @RequestMapping(value="/project", method = RequestMethod.GET)
+    @RequestMapping(value="/project", method = RequestMethod.POST)
     public String getPage(ModelMap model, HttpServletRequest request) {
     	String projectName = request.getParameter("projectName");
     	String projectPath = request.getParameter("projectPath");

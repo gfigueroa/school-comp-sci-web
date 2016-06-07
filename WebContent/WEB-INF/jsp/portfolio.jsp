@@ -30,18 +30,24 @@ File[] thumbnailList =
 <%@include file='header.jsp'%>
 
 <div class="container"><!-- start main -->
+
 	<div class="main row">
 		
-		<div class="dropdown" style="text-align:center">
-		  <button onclick="myFunction()" class="dropbtn">School Year</button>
+ 		<h2 class="style">Projects</h2>
+ 		
+		 <div class="dropdown" style="text-align:center">
+		  <button onclick="myFunction()" class="dropbtn">${year} - ${year + 1}</button>
 		  <div id="myDropdown" class="dropdown-content">
 		    <a href="portfolio.html?year=2015">2015 - 2016</a>
 		    <a href="portfolio.html?year=2014">2014 - 2015</a>
 		    <a href="portfolio.html?year=2013">2013 - 2014</a>
 		  </div>
 		</div>
+		<br><br><br>
 		
- 		<h2 class="style">High School Computer Science ${year} - ${year + 1}</h2>
+		<h3 class="style">High School Computer Science</h3>
+		<br>
+ 		
  		<%
  		int count = 0;
  		boolean closed = false;
@@ -63,12 +69,6 @@ File[] thumbnailList =
  			String author = dashIndex != -1 ? cleanFileName.substring(0, dashIndex - 1) :
 					cleanFileName;
  			
- 			String projectHtmlPath = "project.html" +
- 					"?projectName=" + projectName +
- 					"&projectPath=" + projectPath +
- 					"&fileName=" + fileName +
- 					"&author=" + author;
- 			
  			closed = false;
  			if (count % 4 == 0) { // Each 4 columns, add one new row
  		%>
@@ -81,9 +81,15 @@ File[] thumbnailList =
 				<div class="fancyDemo">
 					<a rel="group" title="" href="<%= thumbnailPath %>"><img src="<%= thumbnailPath %>" alt=""class="img-responsive"/></a>
 				</div>
-				 <h3><a href="<%= projectHtmlPath %>"><%= projectName %></a></h3>
-				 <p class="para">Created by: <%= author %></p>
-				 <h4><a href="<%= projectHtmlPath %>">Play!</a> </h4>
+				<form id="project_form" action="project.html" method="POST">
+					<input type="hidden" name="projectName" value="<%= projectName %>" />
+					<input type="hidden" name="projectPath" value="<%= projectPath %>" /> 
+					<input type="hidden" name="fileName" value="<%= fileName %>" /> 
+					<input type="hidden" name="author" value="<%= author %>" /> 
+					<h3><a href="javascript:{}" onclick="document.getElementById('project_form').submit(); return false;"><%= projectName %></a></h3>
+					<p class="para">Created by: <%= author %></p>
+					<h4><a href="javascript:{}" onclick="document.getElementById('project_form').submit(); return false;">Play!</a></h4>
+				</form>
 			</div>
 		<%
 			if (count % 4 == 0) { // Each 4 columns, close row
