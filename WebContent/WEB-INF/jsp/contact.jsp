@@ -3,7 +3,7 @@
 	<div class="row footer">
 		<div class="col-md-8 contact_left">
 			<h3>get in touch</h3>
-			<p>In order to get in touch use the contact form below:</h4>
+			<p>In order to get in touch use the contact form below:</p>
 			<form method="post" action="contact-post.html">
 				<input type="text" value="Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
 				<input type="text" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
@@ -18,7 +18,7 @@
 			<ul class="list-unstyled address">
 				<li><i class="fa fa-map-marker"></i><span>No.2, Yih-Shuh Road, National Art Park, Hsinchu, Taiwan 300-67</span></li>
 				<li><i class="fa fa-phone"></i><span>(00) 222 666 444</span></li>
-				<li><i class="fa fa-envelope"></i><a href="mailto:info@mycompany.com">gerardo.figueroa@has.hc.edu.tw</a></li></ul>
+				<li><i class="fa fa-envelope"></i><a href="mailto:gerardo.figueroa@has.hc.edu.tw">gerardo.figueroa@has.hc.edu.tw</a></li></ul>
 		</div>		
 	</div>
 </div>

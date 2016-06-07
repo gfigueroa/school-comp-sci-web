@@ -1,5 +1,7 @@
 package com.has.controller;
 
+import java.util.Calendar;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,24 @@ public class PortfolioController {
     @RequestMapping(value="/portfolio", method = RequestMethod.GET)
     public String getPage(ModelMap model, HttpServletRequest request) {
 
+    	String yearString = request.getParameter("year");
+    	int year;
+    	if (yearString == null) {
+    		// Get current school year
+    		Calendar c = Calendar.getInstance();
+    		year = c.get(Calendar.YEAR);
+    		int month = c.get(Calendar.MONTH) + 1;
+    		
+    		if (month < 10) { // Start looking after October
+    			year -= 1; // Use previous year if we are before October
+    		}
+    	}
+    	else {
+    		year = Integer.parseInt(yearString);
+    	}
+    	
+    	model.addAttribute("year", year);
+    	
         // Prepare the result view:
         return "portfolio";
     }

@@ -31,6 +31,8 @@
     		});
 		});
 	</script>
+	<!-- Dropdown menus -->
+	<script type="text/javascript" src="resources/js/dropdown.js"></script>
 <!----font-Awesome----->
    	<link rel="stylesheet" href="resources/fonts/css/font-awesome.min.css">
 <!----font-Awesome----->

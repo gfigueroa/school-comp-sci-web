@@ -14,9 +14,8 @@
 		<div class="main row" style="text-align:center">
 			<h2 class="style">${projectName}</h2>
 			<h3 class="style">Created by: ${author}</h3>
-			
 			<div id="flashContent" class="flashContent">
-				<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="500" height="500" id="${projectName}" align="middle">
+				<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="700" height="500" id="${projectName}" align="middle">
 					<param name="movie" value="${fileName}" />
 					<param name="quality" value="high" />
 					<param name="bgcolor" value="#ffffff" />
@@ -29,7 +28,7 @@
 					<param name="salign" value="" />
 					<param name="allowScriptAccess" value="sameDomain" />
 					<!--[if !IE]>-->
-					<object type="application/x-shockwave-flash" data="${projectPath}" width="500" height="500">
+					<object type="application/x-shockwave-flash" data="${projectPath}" width="700" height="500">
 						<param name="movie" value="${fileName}" />
 						<param name="quality" value="high" />
 						<param name="bgcolor" value="#ffffff" />
@@ -53,11 +52,12 @@
 			
 			<div class="read_more btm">
 				<a href="portfolio.html">Back</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="" onClick="history.go(0)">Reset</a>
 			</div>
 
-			
 		</div>
+
 	</div>
 </div><!-- end main -->
 

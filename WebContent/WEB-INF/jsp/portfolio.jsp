@@ -10,14 +10,18 @@
 
 <%
 
+int year = (Integer) request.getAttribute("year");
+
 final Logger logger = Logger.getLogger(portfolio_jsp.class);
-final String thumbnailsPath = "/resources/projects/2014/hscs/flash-games/thumbnails/";
-final String projectsPath = "/resources/projects/2014/hscs/flash-games/swf/";
+final String thumbnailsPath = "/resources/projects/" + year + "/hscs/flash-games/thumbnails/";
+final String projectsPath = "/resources/projects/" + year + "/hscs/flash-games/swf/";
 
 HttpSession s = request.getSession();
 ServletContext c = session.getServletContext();
 File thumbnailsDirectory = new File(c.getRealPath(thumbnailsPath));
-File[] thumbnailList = thumbnailsDirectory.listFiles();
+File[] thumbnailList = 
+		thumbnailsDirectory.listFiles() == null ? new File[0] : 
+			thumbnailsDirectory.listFiles();
 
 %>
 
@@ -27,7 +31,17 @@ File[] thumbnailList = thumbnailsDirectory.listFiles();
 
 <div class="container"><!-- start main -->
 	<div class="main row">
- 		<h2 class="style">High School Computer Science 2014 - 2015</h2>
+		
+		<div class="dropdown" style="text-align:center">
+		  <button onclick="myFunction()" class="dropbtn">School Year</button>
+		  <div id="myDropdown" class="dropdown-content">
+		    <a href="portfolio.html?year=2015">2015 - 2016</a>
+		    <a href="portfolio.html?year=2014">2014 - 2015</a>
+		    <a href="portfolio.html?year=2013">2013 - 2014</a>
+		  </div>
+		</div>
+		
+ 		<h2 class="style">High School Computer Science ${year} - ${year + 1}</h2>
  		<%
  		int count = 0;
  		boolean closed = false;
@@ -36,10 +50,18 @@ File[] thumbnailList = thumbnailsDirectory.listFiles();
  			
  			String thumbnailPath = thumbnailsPath + thumbnail.getName();
  			
- 			String projectName = thumbnail.getName().substring(0, thumbnail.getName().indexOf("."));
- 			String projectPath = projectsPath + projectName + ".swf";
- 			String fileName = projectName + ".swf";
- 			String author = thumbnail.getName().substring(0, thumbnail.getName().indexOf("."));
+ 			// e.g. "Allen Yang - Dodge Car Game" or "Allen Yang"
+ 			String cleanFileName = thumbnail.getName().substring(0, thumbnail.getName().indexOf("."));
+ 			String fileName = cleanFileName + ".swf";
+ 			
+ 			int dashIndex = cleanFileName.indexOf('-');
+ 			String projectName = dashIndex != -1 ? cleanFileName.substring(dashIndex + 1) :
+ 					cleanFileName;
+ 			
+ 			String projectPath = projectsPath + fileName;
+ 			
+ 			String author = dashIndex != -1 ? cleanFileName.substring(0, dashIndex - 1) :
+					cleanFileName;
  			
  			String projectHtmlPath = "project.html" +
  					"?projectName=" + projectName +
