@@ -81,14 +81,14 @@ File[] thumbnailList =
 				<div class="fancyDemo">
 					<a rel="group" title="" href="<%= thumbnailPath %>"><img src="<%= thumbnailPath %>" alt=""class="img-responsive"/></a>
 				</div>
-				<form id="project_form" action="project.html" method="POST">
+				<form id="project_form<%= count %>" action="project.html" method="POST">
 					<input type="hidden" name="projectName" value="<%= projectName %>" />
 					<input type="hidden" name="projectPath" value="<%= projectPath %>" /> 
 					<input type="hidden" name="fileName" value="<%= fileName %>" /> 
 					<input type="hidden" name="author" value="<%= author %>" /> 
-					<h3><a href="javascript:{}" onclick="document.getElementById('project_form').submit(); return false;"><%= projectName %></a></h3>
+					<h3><a href="javascript:{}" onclick="document.getElementById('project_form<%= count %>').submit(); return false;"><%= projectName %></a></h3>
 					<p class="para">Created by: <%= author %></p>
-					<h4><a href="javascript:{}" onclick="document.getElementById('project_form').submit(); return false;">Play!</a></h4>
+					<h4><a href="javascript:{}" onclick="document.getElementById('project_form<%= count %>').submit(); return false;">Play!</a></h4>
 				</form>
 			</div>
 		<%

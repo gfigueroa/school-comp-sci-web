@@ -54,7 +54,14 @@
 			<div class="read_more btm">
 				<a href="portfolio.html">Back</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="" onClick="history.go(0)">Reset</a>
+				<a href="javascript:{}" onclick="document.getElementById('project_form').submit(); return false;">Reset</a>
+				<form id="project_form" action="project.html" method="POST">
+					<input type="hidden" name="projectName" value="${projectName}" />
+					<input type="hidden" name="projectPath" value="${projectPath}" /> 
+					<input type="hidden" name="fileName" value="${fileName}" /> 
+					<input type="hidden" name="author" value="${author}" /> 
+				</form>
+				
 			</div>
 
 		</div>
