@@ -15,11 +15,11 @@
 			<div class="col-md-8 blog_left">
 				<h2 class="style">our recent blogs</h2>
 				<div class="blog_main">
-					<a href="single-page.html"><img src="resources/images/blog_pic1.jpg" alt="" class="blog_img img-responsive"/></a>
-					<h4><a href="single-page.html">Lorem Ipsum is simply dummy text of the printingy </a></h4>
+					<a href="#"><img src="resources/images/blog_pic1.jpg" alt="" class="blog_img img-responsive"/></a>
+					<h4><a href="#">HAS Computer Science web site is launched!</a></h4>
 						<div class="blog_list pull-left">
 							  <ul class="list-unstyled">
-								<li><i class="fa fa-calendar-o"></i><span>June 3, 2013</span></li>
+								<li><i class="fa fa-calendar-o"></i><span>June 15, 2016</span></li>
 								<li><a href="#"><i class="fa fa-comment"></i><span>Comments</span></a></li>
 						  		<li><i class="fa fa-user"></i><span>Admin</span></li>
 						  		<li><a href="#"><i class="fa fa-eye"></i><span>124 views</span></a></li>
@@ -29,31 +29,21 @@
 						<a href=""><i class="fa fa-heart"></i><span> 28</span></a>
 					</div>
 					<div class="clearfix"></div>
-					<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+					<p class="para">
+					The Hsinchu American School web site for the Computer Science department has finally been launched, and it can be accessed at
+					<a href="http://has-cs.herokuapp.com/">has-cs.herokuapp.com/</a>.
+					The site offers students, parents, and teachers a chance of exploring the different computer projects created by HAS students
+					since 2013.
+					The current projects that are available for viewing are the incredible Flash games created by the High School Computer Science students
+					in the years 2013, 2014, and 2015.
+					Feel free to check them out in our <a href="/portfolio">Projects</a> section!
+					Happy gaming!
+					</p>
 					<div class="read_more btm">
-						<a href="single-page.html">view more</a>
+						<a href="#">view more</a>
 					</div>
 				</div>
-				<div class="blog_main">
-					<iframe src="//player.vimeo.com/video/25541923?color=c9161f" width="100%" height="350" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					<h4><a href="single-page.html">Lorem Ipsum is simply dummy text of the printingy </a></h4>
-						<div class="blog_list pull-left">
-							  <ul class="list-unstyled">
-								<li><i class="fa fa-calendar-o"></i><span>June 3, 2013</span></li>
-								<li><a href="#"><i class="fa fa-comment"></i><span>Comments</span></a></li>
-						  		<li><i class="fa fa-user"></i><span>Admin</span></li>
-						  		<li><a href="#"><i class="fa fa-eye"></i><span>124 views</span></a></li>
-							  </ul>
-						</div>
-					<div class="b_left pull-right">
-						<a href=""><i class="fa fa-heart"></i><span>357</span></a>
-					</div>
-					<div class="clearfix"></div>
-					<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
-					<div class="read_more btm">
-						<a href="single-page.html">view more</a>
-					</div>
-				</div>
+
 			</div>
 			<div class="col-md-4 blog_right">
 				<ul class="ads_nav list-unstyled">

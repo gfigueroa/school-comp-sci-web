@@ -61,7 +61,7 @@ File[] thumbnailList =
  			String fileName = cleanFileName + ".swf";
  			
  			int dashIndex = cleanFileName.indexOf('-');
- 			String projectName = dashIndex != -1 ? cleanFileName.substring(dashIndex + 1) :
+ 			String projectName = dashIndex != -1 ? cleanFileName.substring(dashIndex + 2) :
  					cleanFileName;
  			
  			String projectPath = projectsPath + fileName;
@@ -82,6 +82,7 @@ File[] thumbnailList =
 					<a rel="group" title="" href="<%= thumbnailPath %>"><img src="<%= thumbnailPath %>" alt=""class="img-responsive"/></a>
 				</div>
 				<form id="project_form<%= count %>" action="project.html" method="POST">
+					<input type="hidden" name="projectYear" value="<%= year %>" />
 					<input type="hidden" name="projectName" value="<%= projectName %>" />
 					<input type="hidden" name="projectPath" value="<%= projectPath %>" /> 
 					<input type="hidden" name="fileName" value="<%= fileName %>" /> 

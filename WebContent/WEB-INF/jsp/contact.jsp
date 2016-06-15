@@ -1,14 +1,44 @@
+<%
+String contactStatus = 
+		request.getParameter("contactStatus") != null ? 
+				request.getParameter("contactStatus") :
+				null;
+%>
+
 <div class="footer_bg" id="contact"><!-- start contact -->
 <div class="container">
 	<div class="row footer">
 		<div class="col-md-8 contact_left">
+			
+			<%
+			if (contactStatus != null) {
+				if (contactStatus.equalsIgnoreCase("success")) {
+			%>
+			<div class="alert alert-success">
+			  <strong>Success!</strong> Your message was sent.
+			</div>
+			<%
+			}
+				else {
+			%>
+			<div class="alert alert-warning">
+			  <strong>Warning!</strong> There was an error sending your message. Please contact the web page administrator.
+			</div>
+			<%
+				}
+			}
+			%>
+			
 			<h3>get in touch</h3>
 			<p>In order to get in touch use the contact form below:</p>
-			<form method="post" action="contact-post.html">
-				<input type="text" value="Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-				<input type="text" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
-				<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
-				<textarea onfocus="if(this.value == 'Your Message here....') this.value='';" onblur="if(this.value == '') this.value='Your Message here....;" >Your Message here....</textarea>
+			<form method="post" action="sendEmail">
+				<input type="text" name="senderName" value="Name (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+				<input type="text" name="senderEmail" value="Email (Required)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
+				<input type="text" name="subject" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}">
+				<textarea name="message" onfocus="if(this.value == 'Your Message here....') this.value='';" onblur="if(this.value == '') this.value='Your Message here....;" >Your Message here....</textarea>
+				<input type="hidden" name="recipient" value="gerardo.figueroa@has.hc.edu.tw" /> 
+				<input type="hidden" name="viewName" value="${viewName}" /> 
+				<input type="hidden" name="queryString" value="${queryString}" /> 
 				<span class="pull-right"><input type="submit" value="submit us"></span>
 			</form>
 		</div>

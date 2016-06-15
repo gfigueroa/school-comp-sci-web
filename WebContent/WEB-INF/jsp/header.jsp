@@ -8,7 +8,7 @@
 			<ul class="top-nav nav_list">
 				<li><a href="portfolio.html">Projects</a></li>
 				<li class="page-scroll"><a href="index.html">About</a></li>
-				<li class="logo page-scroll"><a title="hexa" href="index.html"><img src="resources/images/logo.png" alt="" class="responsive"/></a></li>
+				<li class="logo page-scroll"><a title="HAS Computer Science" href="index.html"><img src="resources/images/logo.png" alt="" class="responsive"/></a></li>
 			    <li class="page-scroll"><a href="blog.html">Blog</a></li>
 				<li class="page-scroll"><a href="#contact">Get in touch</a></li>
 			</ul>
